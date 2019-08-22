@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
+    <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const {Button} = MaterialUI;
+      ReactDOM.render(<Button>button</Button>, document.querySelector('#root'));
+    </script>
+  </body>
+  <!-- 
+    If you delete the head scripts, Button doesnt render . network tab shows cache hit, but still ~30ms load time per embed
+    and multiple copies are loaded into memory. 
+    peer embed <-> peer embed resources dont seem to be sharable
+    parent -> child embed resources don't seem to be sharable (ofc can use some shared storage mechanism)
+    
+    check if sharable resources can be cloned over message channel or broadcast channel
+    check if a ref to a cloned fetch can be sharable
+    check *LATENCY* not execution time of idb and local storage
+    we're on the same origin, so this shouldn't be a permission issue
+    
+    sidenote: an embed's purpose isnt sandboxing, but that's what its doing. - its purpose is to host non-native apps, which of course should be trusted
+  -->
+</html>

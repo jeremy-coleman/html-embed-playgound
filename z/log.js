@@ -1,0 +1,1 @@
+export {trylog} from './reexport.js'
