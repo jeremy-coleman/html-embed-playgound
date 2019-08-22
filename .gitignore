@@ -10,3 +10,4 @@ application/logs/*
 
 !application/*/.htaccess
 yarn.lock
+z
